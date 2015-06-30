@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+
+<html>
+<style>
+#map-canvas {
+	width: 500px;
+	height: 400px;
+}
+</style>
+
+<head>
+<title>Whitewood Cafe</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="assets/css/main.css" />
+
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<body class="right-sidebar">
+
+	<div id="page-wrapper">
+
+
+		<!-- Header -->
+		<div id="header-wrapper">
+			<div id="header" class="container">
+
+				<!-- Logo -->
+				<h1 id="logo">
+					<a href="index.html">Whitewood Cafe</a>
+				</h1>
+
+				<br>
+				<p style="float: left; margin-left: 10px">Best ingredients.
+					Fresh to go.</p>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a class="icon fa-info" href="index.html"><span>About
+									us</span></a></li>
+						<li><a class="icon fa-coffee" href="coffee.html"><span>Coffee
+									& Tea</span></a></li>
+						<li><a class="icon fa-delicious" href="waffle.html"><span>Waffle</span></a></li>
+						<li><a class="icon fa-list" href="menu.html"><span>Menu</span></a></li>
+						<li><a class="icon fa-cab" href="services.html"><span>Services</span></a></li>
+					</ul>
+				</nav>
+
+			</div>
+
+			<img src="images/whitewood-logo.png"
+				style="position: absolute; top: 5em; right: 20em" align="right"
+				height="200" width="200">
+
+		</div>
+
+
+		<!-- Main -->
+		<div id="main-wrapper">
+			<div id="main" class="container">
+				<img src="images/menu_catering1.png" style="width:50%; margin-left: auto; margin-right: auto; float:left"/>
+				<img src="images/menu_catering2.png" style="width:50%; margin-left: auto; margin-right: auto; float:right"/>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div id="footer-wrapper">
+			<div id="footer" class="container">
+				<div class="row">
+					<div class="6u 12u(mobile)">
+						<section>
+							<div id="map-canvas"></div>
+						</section>
+					</div>
+					<div class="6u 12u(mobile)">
+						<section>
+							<h2 style="margin-bottom: 0px; margin-top: 50px">Contact us</h2>
+							<div class="row">
+								<div class="6u 12u(mobile)">
+
+									<ul class="icons">
+										<li class="icon fa-home">4697 Kingsway<br /> Burnaby, BC
+											V5H 2B3<br /> Canada
+										</li>
+										<li class="icon fa-phone">(778) 379-9938</li>
+										<li class="icon fa-envelope"><a
+											href="mailto:tsaowing1123@gmail.com">tsaowing1123@gmail.com</a>
+										</li>
+									</ul>
+								</div>
+								<div class="6u 12u(mobile)">
+									<ul class="icons">
+										<li class="icon fa-facebook"><a
+											href="https://www.facebook.com/whitewoodcafe">Facebook/Whitewoodcafe</a>
+										</li>
+										<li class="icon fa-spoon"><a
+											href="https://www.zomato.com/vancouver?adref&gclid=CjwKEAjwwZmsBRDOh7C6rKO8zkcSJABCusnbtR8AexEoq1R0h3UgEc3BhmWCiQiHOG4WenR9INSJnxoCmN7w_wcB">Urban
+												Spoon (Zomato)</a></li>
+										<li class="icon fa-yelp"><a
+											href="http://www.yelp.ca/vancouver">Yelp</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div id="copyright" class="container">
+				<ul class="links">
+					<li>© Copyright Whitewood Cafe. All rights reserved.</li>
+					<li>Designed by: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/skel-viewport.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+	<!-- Google Map Scripts -->
+	<script src="https://maps.googleapis.com/maps/api/js"></script>
+	<script>
+		function initialize() {
+			var mapCanvas = document.getElementById('map-canvas');
+			var myLatlng = new google.maps.LatLng(49.228630, -122.999552);
+			var mapOptions = {
+				center : myLatlng,
+				zoom : 17,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			}
+			var map = new google.maps.Map(mapCanvas, mapOptions)
+
+			var marker = new google.maps.Marker({
+				position : myLatlng,
+				map : map,
+				title : 'Whitewood Cafe'
+			});
+
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
+</body>
+</html>
