@@ -1847,7 +1847,7 @@
 		/* Header */
 
 			#header {
-				padding: 10em 0 7em 0;
+				padding: 1em 0 4em 0;
 			}
 
 				#header h1 {
@@ -1864,10 +1864,8 @@
 		/* Nav */
 
 			#nav {
-				position: absolute;
-				top: 3em;
-				left: 0;
 				width: 100%;
+				float:left;
 			}
 
 				#nav > ul > li {
