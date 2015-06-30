@@ -3,8 +3,9 @@
 <html>
 <style>
 #map-canvas {
-	width: 500px;
-	height: 400px;
+	width: 400px;
+	height: 300px;
+	margin-left: 75px;
 }
 </style>
 
@@ -57,9 +58,7 @@
 					</ul>
 				</nav>
 							
-				
 			</div>
-
 		</div>
 
 
@@ -138,11 +137,11 @@
 						<section>
 							<h2 style="margin-bottom: 0px; margin-top: 50px">Contact us</h2>
 							<div class="row">
-								<div class="6u 12u(mobile)">
+								<div class="6u 12u(mobile)" style="padding-top:25px">
 
 									<ul class="icons">
 										<li class="icon fa-home">4697 Kingsway<br /> Burnaby, BC
-											V5H 2B3<br /> Canada
+											V5H 2B3
 										</li>
 										<li class="icon fa-phone">(778) 379-9938</li>
 										<li class="icon fa-envelope"><a
@@ -150,7 +149,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="6u 12u(mobile)">
+								<div class="6u 12u(mobile)" style="padding-top:25px">
 									<ul class="icons">
 										<li class="icon fa-facebook"><a
 											href="https://www.facebook.com/whitewoodcafe">Facebook/Whitewoodcafe</a>
@@ -193,30 +192,58 @@
 		function initialize() {
 			var mapCanvas = document.getElementById('map-canvas');
 			var myLatlng = new google.maps.LatLng(49.228630, -122.999552);
+			var metroLatlng = new google.maps.LatLng(49.227343, -122.999448); 
+			var centerLatlng = new google.maps.LatLng(49.227749, -122.999244); 
 			var mapOptions = {
-				center : myLatlng,
-				zoom : 17,
+				center : centerLatlng,
+				zoom : 16,
 				mapTypeId : google.maps.MapTypeId.ROADMAP
 			}
 			var map = new google.maps.Map(mapCanvas, mapOptions)
 
-			var marker = new google.maps.Marker({
+			var wwmarker = new google.maps.Marker({
 				position : myLatlng,
 				map : map,
 				title : 'Whitewood Cafe'
 			});
+			
+			var wwString = '<div id="content">'+
+		      '<h1 id="firstHeading" class="firstHeading">Whitewood Cafe</h1>'+
+		      '</div>';
+		
+		  var cafewindow = new google.maps.InfoWindow({
+		      content: wwString
+		  });
+		  
+		  google.maps.event.addListener(wwmarker, 'click', function() {
+			  cafewindow.open(map,wwmarker);
+			  });
+		  
+			var image = 'images/metro_icon.png';
+			var metromarker = new google.maps.Marker({
+				position : metroLatlng,
+				map : map,
+				icon : image,
+				title : 'Metrotown'
+			});
+			
+			var metroString = '<div id="content">'+
+		      '<h1 id="firstHeading" class="firstHeading">Metropolis at Metrotown</h1>'+
+		      '</div>';
+		      
+			  var metrowindow = new google.maps.InfoWindow({
+			      content: metroString
+			  });
+		      
+			  google.maps.event.addListener(metromarker, 'click', function() {
+				  metrowindow.open(map,metromarker);
+				  });
 
 		}
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
 
 	<script src="slider/js-image-slider.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		imageSlider.thumbnailPreview(function(thumbIndex) {
-			return "<img src='images/thumb" + (thumbIndex + 1)
-					+ ".jpg' style='width:100px;height:60px;' />";
-		});
-	</script>
 
 </body>
 </html>
